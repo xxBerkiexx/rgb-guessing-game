@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB Guessing Game</title>
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="mstr-cntr">
+        <!--Game-->
+        <div id="Game-Cntr" class="game-cntr hide-game">
+            <div class="game-header">
+                <p id="Menu-Btn" class="menu-link">Menu</p>
+                <div class="score-cntr">
+                    <p>W: <span id="Wins"></span></p>
+                    <p><span class="space"></span>L: <span id="Losses"></span></p>
+                </div>
+            </div>
+            <div class="game-rgb">
+                <h1 id="RGB">RGB(255, 255, 255)</h1>
+            </div>
+            <div class="game-selection-cntr">
+                <div id="Selections" class="selection-wrapper">
+                    <div class="selection load-animation hide-selection">
+                        <div id="Color-1" class="color"></div>
+                    </div>
+                    <div class="selection load-animation hide-selection">
+                        <div id="Color-2" class="color"></div>
+                    </div>
+                    <div class="selection load-animation hide-selection">
+                        <div id="Color-3" class="color"></div>
+                    </div>
+                    <div class="selection load-animation hide-selection">
+                        <div id="Color-4" class="color"></div>
+                    </div>
+                    <div class="selection load-animation hide-selection">
+                        <div id="Color-5" class="color"></div>
+                    </div>
+                    <div class="selection load-animation hide-selection">
+                        <div id="Color-6" class="color"></div>
+                    </div>
+                    <div class="selection load-animation hide-selection">
+                        <div id="Color-7" class="color"></div>
+                    </div>
+                    <div class="selection load-animation hide-selection">
+                        <div id="Color-8" class="color"></div>
+                    </div>
+                    <div class="selection load-animation hide-selection">
+                        <div id="Color-9" class="color"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Menu-->
+        <div id="Menu-Cntr" class="menu-cntr">
+            <!--Header-->
+            <div class="menu-header">
+                <h2>The Great</h2>
+                <h1>RGB Guessing Game</h1>
+            </div>
+            <!--Difficulties-->
+            <div class="difficulty-cntr">
+                <!--Easy-->
+                <div id="Easy" class="difficulty">
+                    <p>Easy</p>
+                </div>
+                <!--Medium-->
+                <div id="Medium" class="difficulty">
+                    <p>Medium</p>
+                </div>
+                <!--Hard-->
+                <div id="Hard" class="difficulty">
+                    <p>Hard</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Scripts-->
+    <script src="./js/main.js"></script>
+</body>
+</html>

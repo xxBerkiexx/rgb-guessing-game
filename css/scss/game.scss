@@ -1,0 +1,349 @@
+//----------------------------------- GAME CONTAINER -----------------------------------
+h1 {
+    font-size: 32px;                        //Default font size
+    transition: .2s;                        //Animate responsiveness
+}
+
+p {
+    font-size: 18px;                        //Default font size
+}
+
+.mstr-cntr {
+    width: 100%;                            //Full width of document
+    height: 100%;                           //Full height of document
+    position: relative;                     //Make a parent
+}
+
+.game-cntr, .menu-cntr {
+    width: 100%;                            //Full width of parent container
+    height: 100%;                           //Full height of parent container
+    background-color: $color3;              //Set background color
+    position: absolute;                     
+    top: 0;
+    left: 0;
+}
+
+//----------------------------------- MENU -----------------------------------
+.menu-cntr {
+    display: flex;                          //Display contents as flex
+    flex-flow: column;                      //Flex flows down
+    align-items: center;                    //Center contents
+    text-align: center;                     //Center texts
+    justify-content: center;                //Center contents
+}
+
+.menu-header {
+    flex: 0 1 auto;
+    margin-bottom: 25px;
+    & h2 {
+        font-style: italic;                     //Italic
+        font-size: 24px;                        //Set font size
+        transition: .2s;                        //Animate responsiveness
+    }
+    & h1 {
+        font-size: 34px;                        //Set font size
+        transition: .2s;                        //Animate responsiveness
+    }
+}
+
+.difficulty-cntr {
+    flex: 0 1 350px;                        //Flex to parent container
+    width: 100%;                            //Full width of parent container             
+    display: flex;                          //Display contents flex
+    flex-flow: column;                      //Flex flows down
+    align-items: center;                    //Center contents
+    justify-content: space-evenly;          //Add space between
+    transition: .2s;                        //Animate responsiveness
+    & .difficulty {
+        width: 200px;                           //Width
+        height: 44px;                           //Height
+        line-height: 44px;                      //Vertically center text
+        background-color: $color2;              //Background color
+        border-radius: 50px;                    //Round borders
+        cursor: pointer;                        //Show it can be clicked
+        transition: .2s;                        //Animate responsiveness
+        & p {
+            font-size: 22px;                        //Increase font size
+            transition: .2s;                        //Animate responsiveness
+        }
+    }
+    & .difficulty:hover {
+        box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5); //Add a shadow
+    }
+    & .difficulty:active {
+        background-color: $color3;              //On click color
+    }
+}
+
+.hide-menu {
+    display: none;
+}
+
+
+//----------------------------------- GAME -----------------------------------
+.game-cntr {
+    display: flex;                          //Display contents flex
+    flex-flow: column;                      //Flex flows down
+}
+
+.game-header {
+    padding: 5px 8px;
+    width: 100%;                            //Full width of container
+    flex: 0 1 auto;                         //Flex to container
+    display: flex;                          //Display contents flex
+    justify-content: space-between;         //Space between flex items
+    border-bottom: 2px solid white;
+    & .menu-link:hover {
+        font-weight: bold;                      //Bolden text
+        cursor: pointer;                        //Show it can be clicked
+    }
+    & .score-cntr {
+        & p {
+            display: inline-block;                  //Show side by side
+            & .space {
+                margin-left: 10px;                      //Space between scores
+            }
+        }
+    }
+}
+
+.game-rgb {
+    width: 100%;                            //Full width of container
+    flex: 0 1 120px;                        //Preset flex height
+    line-height: 120px;                     //Vertically center text
+    text-align: center;                     //Center text
+}
+
+.game-selection-cntr {
+    padding: 10px;
+    width: 100%;                            //Full width of container
+    flex: 1 1 auto;                         //Fill rest of space
+    position: relative;                     //Make a parent
+    & .selection-wrapper {
+        width: 100%;                            //Full width of parent container
+        height: 100%;                           //Full height of parent container
+        display: flex;                          //Display items as flex
+        flex-wrap: wrap;                        //Wrap items
+        align-content: center;                  //Vertically center
+        justify-content: center;                //Horizontally center
+        & .selection {
+            margin: 10px;                           //Add a margin
+            width: 100px;                           //Width
+            height: 100px;                          //Height
+            transition: .2s;                        //Animation responsiveness
+            border-radius: 50%;                     //Make a circle
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5); //Add a shadow
+            position: relative;                     //Make a parent
+            cursor: pointer;                        //Show it can be clicked
+            & .color {
+                width: 102%;                            //Full width of parent container
+                height: 102%;                           //Full height of parent container 
+                border-radius: 50%;                     //Make a circle
+                position: absolute;                     //Center container
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: .2s;                        //Animate shrinking
+            }
+            //Handle color shrinking
+            //to show wrong or correct color
+            & .color-sm {
+                width: 75%;                             //Full width of parent container
+                height: 75%;                            //Full height of parent container 
+            }
+        }
+        //Wrong selection
+        & .selection-red {
+            background: linear-gradient(335deg, rgba(184,0,0,1) 43%, rgba(255,0,0,1) 43%);
+        }
+        //Correct selection
+        & .selection-green {
+            background: linear-gradient(335deg, rgba(0,184,0,1) 43%, rgba(0,255,0,1) 43%);
+        }
+        & .selection-hide {
+            opacity: 0;                         //Hide wrong answers
+        }
+    }
+}
+
+.hide-game {
+    display: none;                              //Toggle to show/hide game board
+}
+
+.hide-selection {
+    display: none;                              //Add to change difficulty
+}
+
+.no-click {
+    pointer-events: none;                       //Disable clicking
+}
+
+.load-animation {
+    animation-name: load;
+    animation-duration: .4s;
+    animation-timing-function: cubic-bezier( 0, 0.9, 0.47, 1.33 );
+}
+
+@keyframes load {
+    0%      {transform: scale(0);}
+    100%    {transform: scale(1);}
+}
+
+@media only screen and (max-width: 382px) {
+    //--------------------- MENU ---------------------
+    .menu-header {
+        & h2 {
+            font-size: 20px;                        //Shrink Text
+        }
+        & h1 {
+            font-size: 30px;                        //Shrink Text
+        }
+    }
+    
+    .difficulty-cntr {
+        flex: 0 1 325px;                        //Flex to parent container
+        & .difficulty {
+            width: 190px;                           //Width
+            height: 40px;                           //Height
+            line-height: 40px;                      //Vertically center text
+            & p {
+                font-size: 21px;                        //Increase font size
+            }
+        }
+    }
+
+    //--------------------- GAME ---------------------
+    .game-selection-cntr {
+        & .selection-wrapper {
+            & .selection {
+                width: 90px;                            //Shrink container
+                height: 90px;                           //Shrink container
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 352px) {
+    //--------------------- MENU ---------------------
+    .menu-header {
+        & h2 {
+            font-size: 18px;                        //Shrink Text
+        }
+        & h1 {
+            font-size: 28px;                        //Shrink Text
+        }
+    }
+    
+    .difficulty-cntr {
+        flex: 0 1 300px;                        //Flex to parent container
+        & .difficulty {
+            width: 180px;                           //Width
+            height: 38px;                           //Height
+            line-height: 38px;                      //Vertically center text
+            & p {
+                font-size: 19px;                        //Increase font size
+            }
+        }
+    }
+
+    //--------------------- GAME ---------------------
+    .game-selection-cntr {
+        & .selection-wrapper {
+            & .selection {
+                width: 80px;                            //Shrink container
+                height: 80px;                           //Shrink container
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 322px) {
+    //--------------------- MENU ---------------------
+    .menu-header {
+        & h2 {
+            font-size: 16px;                        //Shrink Text
+        }
+        & h1 {
+            font-size: 26px;                        //Shrink Text
+        }
+    }
+    
+    .difficulty-cntr {
+        flex: 0 1 300px;                        //Flex to parent container
+        & .difficulty {
+            width: 160px;                           //Width
+            height: 34px;                           //Height
+            line-height: 34px;                      //Vertically center text
+            & p {
+                font-size: 17px;                        //Increase font size
+            }
+        }
+    }
+
+    //--------------------- GAME ---------------------
+    h1 {
+        font-size: 28px;                        //Shrink text
+    }
+
+    .game-selection-cntr {
+        & .selection-wrapper {
+            & .selection {
+                width: 70px;                           //Shrink container
+                height: 70px;                           //Shrink container
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 292px) {
+    //--------------------- MENU ---------------------
+    .menu-header {
+        & h2 {
+            font-size: 14px;                        //Shrink Text
+        }
+        & h1 {
+            font-size: 24px;                        //Shrink Text
+        }
+    }
+    
+    .difficulty-cntr {
+        flex: 0 1 300px;                        //Flex to parent container
+        & .difficulty {
+            width: 150px;                           //Width
+            height: 32px;                           //Height
+            line-height: 32px;                      //Vertically center text
+            & p {
+                font-size: 16px;                        //Increase font size
+            }
+        }
+    }
+
+    //--------------------- GAME ---------------------
+    h1 {
+        font-size: 28px;                        //Shrink text
+    }
+
+    .game-selection-cntr {
+        & .selection-wrapper {
+            & .selection {
+                width: 60px;                           //Shrink container
+                height: 60px;                           //Shrink container
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 262px) {
+    h1 {
+        font-size: 24px;                        //Shrink text
+    }
+
+    .game-selection-cntr {
+        & .selection-wrapper {
+            & .selection {
+                width: 50px;                           //Shrink container
+                height: 50px;                           //Shrink container
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+//Import fonts
+@import url('https://fonts.googleapis.com/css?family=Poppins:400'); //Poppins
+
+//Import variables
+@import "./variables.scss";                 //Variables 
+
+//Import other SASS files
+@import "./css-reset.scss";                 //CSS reset
+@import "./game.scss";                      //Game
+
+
+//TEMPORARY CODE
+// .temp-mstr-cntr {
+//     max-height: 600px;
+//     aspect-ratio: 2 / 3;
+// }
